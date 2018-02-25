@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .box{
+            width:100px;
+            height:100px;
+            margin:20px;
+            border:1px solid #ccc;
+            background:orange;
+        }
+    </style>
+</head>
+<body>
+    <div class="box" id="box1"></div>
+    <div class="box" id="box2"></div>
+    <div class="box" id="box3"></div>
+
+    <script>
+        var box1=document.getElementById("box1");
+        var box2=document.getElementById("box2");
+        var box3=document.getElementById("box3");
+
+        box1.onclick=changeBg;
+        box2.onclick=changeBg;
+        box3.onclick=changeBg;
+
+        //闭包让self不会乱，每个box都会有自己的self：
+        function changeBg(){
+            var self=this;
+            setInterval(function () {
+                self.style.background='red';
+            },1000)
+        }
+    </script>
+</body>
+</html>
